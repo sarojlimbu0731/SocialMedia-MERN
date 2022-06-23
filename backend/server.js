@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import dotenv from 'dotenv';
 import AuthRoute from './Routes/AuthRoute.js';
+import UserRoute from './Routes/UserRoute.js'
 
 //routes
 const app= express();
@@ -21,5 +22,9 @@ mongoose.connect(
 .catch( (err)=>console.log(err));
 
 //uses of routes
+//for login and registering
 app.use('/auth',AuthRoute);
+
+//for user CRUD operation
+app.use('/user',UserRoute)
 
