@@ -10,7 +10,7 @@ export const createPost = async(req,res)=>{
 
     try {
         await newPost.save();
-        res.status(200).json("post created!")
+        res.status(200).json(newPost)
 
     } catch (err) {
         res.status(500).json(err)
@@ -49,7 +49,7 @@ export const updatePost= async(req,res)=>{
             res.status(403).json("Action forbidden")
         }
     } catch (err) {
-        res.status(500).jso(err)
+        res.status(500).json(err)
         
     }
 }
@@ -109,6 +109,7 @@ export const getTimeLinePost= async(req, res)=>{
 
     try {
         const currentUserPost= await PostModel.find({userId:userId})
+        
         const followingPost= await UserModel.aggregate([
             {
                 $match: {
@@ -135,6 +136,6 @@ export const getTimeLinePost= async(req, res)=>{
         )
         
     } catch (err) {
-        res.status(500).url(err)
+        res.status(500).json(err)
     }
 }

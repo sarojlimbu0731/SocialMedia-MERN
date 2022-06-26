@@ -17,12 +17,13 @@ const UserSchema=mongoose.Schema(
         isAdmin:{
             type:Boolean, default:false
         },
-        profilepicture: String,
-        coveropicture: String,
+        profileimg: String,
+        coverimg: String,
         about: String,
         livesin: String,
         worksat: String,
         relationship: String,
+        country:String,
         follower: [],
         following: []
     },

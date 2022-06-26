@@ -5,10 +5,15 @@ import dotenv from 'dotenv';
 import AuthRoute from './Routes/AuthRoute.js';
 import UserRoute from './Routes/UserRoute.js';
 import PostRoute from './Routes/PostRoute.js';
+import UploadRoute from './Routes/UploadRoute.js'
 import cors from 'cors'
 
 //routes
 const app= express();
+
+//to serve images for public
+app.use(express.static('public'))
+app.use('/images',express.static("images"))
 
 
 //middleware
@@ -34,4 +39,7 @@ app.use('/user',UserRoute)
 
 //for post operation
 app.use('/post',PostRoute)
+
+//for uploading the post
+app.use('/upload',UploadRoute)
 

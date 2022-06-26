@@ -18,7 +18,11 @@ export const signUp = (formData) => async (dispatch) => {
     const { data } = await AuthApi.signUp(formData);
     dispatch({ type: "AUTH_SUCCESS", data: data });
   } catch (err) {
-    console.log(err);
+    console.log("problem in signup");
     dispatch({ type: "AUTH_FAIL" });
   }
 };
+
+export const logout =() => async(dispatch)=>{
+  dispatch({type:"LOGOUT"})
+}

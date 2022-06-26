@@ -54,6 +54,6 @@
 }
 
 .button:disabled{
-  background-color: silver;
+  background: silver;
   pointer-events: none;
 }
